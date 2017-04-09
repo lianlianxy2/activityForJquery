@@ -1,9 +1,9 @@
 require.config({
-	baseUrl: "/assets/js/controls",
+	baseUrl: "assets/js/controls",
 　　paths: {
-　　　　"jquery"		:"/assets/js/jquery/jquery1.12.4.min",
-		"jqueryui"		:"/assets/js/jquery/jqueryui",
-		"awardRotate"	:"/assets/js/jquery/awardRotate"
+　　　　"jquery"		:"assets/js/jquery/jquery1.12.4.min",
+		"jqueryui"		:"assets/js/jquery/jqueryui",
+		"awardRotate"	:"assets/js/jquery/awardRotate"
 　　},
 	shim: {
 		'menu_ctrl':['jquery','jqueryui'],
