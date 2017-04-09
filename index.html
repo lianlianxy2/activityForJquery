@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charSet="utf-8" />
+<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+<title>网页编辑器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="stylesheet" href="http://a.tbcdn.cn/??p/global/1.0/global-min.css?t=20130228.css">
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/taesite/platinum/stylesheet/??view/footer-min.css,view/copyright-min.css,view/layout-min.css,common/mods/header/header-min.css,/common/mods/ww-hover/default-min.css,common/modules-sys-default-min.css,common/modules-other-default-min.css,common/mods/new-signboard/default-min.css?t=20130524.css">
+<link rel="stylesheet" href="http://a.tbcdn.cn/??/apps/taesite/platinum/stylesheet/common/templates/fengxun/black/skin-new.css?t=20121031.css">
+<link rel="stylesheet" href="assets/css/tools.css" />
+<script src="assets/js/require.js" data-main="assets/js/config"></script>
+<style>
+/*大转盘 开始*/
+.rule{font-size: 0.85em;color: #rule;width: 90%;margin-left: 5%;margin-top: 10px; text-align: center;background-color: #f8e1e8;padding: 5px 0;position: relative;}
+.rule:after{content: "";width: 8px;height: 8px;position: absolute;right: 5px;top:5px;background-color: #eeb3c6;border-radius: 50%;}
+.rule:before{content: "";width: 8px;height: 8px;position: absolute;left: 5px;top:5px;background-color: #eeb3c6;border-radius: 50%;}
+.point{ position: relative; top: 15px; left: 0;width: 100%;height: 35px;line-height: 35px;text-align: center;color: #000; }
+.tableBox{width: 96%;margin-left: 2%;margin-top: 20px;padding-bottom: 15px; background-color: #eeb3c6;border: 7px solid #edb6c5;box-shadow: inset 0 0 20px #c26574;}
+.ruleTxt{ width:90%; margin-left:5%; padding:10px 0; background-color:rgba(255,255,255,0.7); border-radius: 20px;padding:15px; color: #48128a;}
+.ruleTxt p{padding-left: 1.5em; text-indent: -1.5em;}
+.ruleTxt span{ padding-top:3px; display: block;}
+.turntable-bg{width:100%;overflow:hidden;position:relative; left:0px; top:0px;}
+.turntable-bg .pointer{width:24%;overflow:hidden;position:absolute;left:38%;top:32%;z-index:3;outline:none;border-radius:50%;background:url(http://www.webedit.cm/assets/images/but_go.png) no-repeat scroll 0 0;background-size:100%;height:40%}
+.turntable-bg .pointer img{ width:100%;}
+.turntable-bg .rotate {width: 100%;}
+.turntable-bg .rotate img{ width:100%; border:0; outline:none;}
+.tableRotate{
+	-webkit-animation:rotate 0.5s linear infinite;
+	animation:rotate 0.5s linear infinite;
+}
+.t-txt{width: 80%; margin-left: 10%;background: -webkit-linear-gradient(left,rgba(253,250,251,0),rgba(253,250,251,1),rgba(253,250,251,0));}
+@-webkit-keyframes rotate{
+	0%{ -webkit-transform:rotate(0deg)}
+	100%{ -webkit-transform:rotate(360deg)}
+}
+@keyframes rotate{
+	0%{transform:rotate(0deg)}
+	100%{transform:rotate(360deg)}
+}
+/*大转盘 结束*/
+input{color:white;}
+
+
+</style>
+</head>
+<body>
+<div id="site-header">
+
+</div>
+
+<div class="zgc-attrib clearfix ujc_move ujc_tools_bdy ui-draggable" style="z-index:998;">
+  	<div class="switch-bar ujc_tools_ss" id="J_upstate" style="display:block"><span><i class="ujc_tools_open unfold"></i></span></div>
+	<div>
+	<div id="J_addImg_attrib" class="zgc-attlist" style="display: none;">
+						<ul class="zgc-attnav">
+							<li class="nav-selected">大转盘设置</li>
+							<li>css查看</li>
+							<li>html查看</li>
+							<li>规则</li>
+						</ul>
+						<div class="zgc-attcnt">
+							<div class="set-inner">
+								<div class="control-group">
+									<label class="control-label">游戏ID</label>
+									<div class="control">
+										<input class="input-box lgmid textred" type="text" name="hotid" value=""  style="border:none">
+										<span class="tips"><input class="btn-ok" type="button" name="btncopy" value="获取数据"></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">宽度</label>
+									<div class="control">
+										<input class="input-box long68" type="text" autocomplete="off" name="width" value="375">
+                                        <span class="tips">透明度</span>
+										<span class="tips"><input class="input-box long68" type="text" autocomplete="off" name="opacity" value="1"></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">开始</label>
+									<div class="control">
+										<input class="input-box long68" type="text" autocomplete="off" name="start_time" value="">
+                                        <span class="tips">结束</span>
+										<span class="tips"><input class="input-box long68" type="text" autocomplete="off" name="start_end" value=""></span>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">奖品配置</label>
+									<div class="control">
+										<input class="input-box long106" type="text" autocomplete="off" name="facade" value="">
+										<span class="bntips" style="display:none"><input class="btn-ok S_picsChoseBtn" type="button" value="图片选择"></span>
+                                    </div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">链接地址</label>
+									<div class="control">
+										<input class="input-box long120" type="text" autocomplete="off" name="url" value="">
+										<span class="chtips"><label><input type="checkbox" name="openstyle" value="_blank" checked="checked">新窗口</label></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="auxiliary-attr"><div class="location-box"><span class="label-posx">距离左侧</span><span class="rinput-box"><input class="input-box" type="text" autocomplete="off" name="left" value=""></span><span class="label-posy">顶部</span><span class="rinput-box"><input class="input-box" type="text" autocomplete="off" name="top" value=""></span><span class="rinput-box"><input type="button" name="preview" value="预览"/></span></div></div>
+					</div>
+	</div>
+	</div>
+</div>
+<script>
+	
+	
+</script>
+</body>
+</html>
