@@ -16,7 +16,7 @@ $.fn.extend({
 
 		_this.getMenuList=function(){
 			$.ajax({
-				url:'http://www.webedit.cm/menu.php',
+				url:'http://www.huanyuyoupin.com/menu.php',
 				type:'get',
 				dataType: 'json',
 				success:function(data){
