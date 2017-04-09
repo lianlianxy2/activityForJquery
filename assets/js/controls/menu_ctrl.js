@@ -15,16 +15,14 @@ $.fn.extend({
 		}
 
 		_this.getMenuList=function(){
-			//$.ajax({
-			//	url:'http://www.webedit.cm/menu.php',
-			//	type:'get',
-			//	dataType: 'json',
-			//	success:function(data){
-			//		_this.createMenu(data);
-			//	}				
-			//})
-			_this.createMenu('["\u5934\u56fe","\u70ed\u533a","\u5bfc\u822a\u6761","\u5927\u8f6c\u76d8","\u5546\u54c1\u5217\u8868","
-\u9886\u52b5","\u89c6\u9891"]');
+			$.ajax({
+				url:'http://www.webedit.cm/menu.php',
+				type:'get',
+				dataType: 'json',
+				success:function(data){
+					_this.createMenu(data);
+				}				
+			})			
 		}	
 		
 		_this.createMenu=function(data){			
